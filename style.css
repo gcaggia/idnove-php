@@ -1,3 +1,11 @@
-.form-control {	
-	width: 50%;
+.vcenter {
+    margin-top: 150px;
+}
+
+body {
+	background-image: url('./images/Innovation.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #FFF;
+	background-color: #023577;
 }
