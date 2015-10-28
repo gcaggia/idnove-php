@@ -1,5 +1,5 @@
 <?php 
-	//Paramètres de connection sur le ftp :
+	//Paramètres de connection 
 	$PARAM_hote        = 'localhost'; // le chemin vers le serveur
 	$PARAM_dbname      = 'idnove';    // le nom de votre base de données
 	$PARAM_utilisateur = 'pdo';       // nom d'utilisateur pour se connecter
@@ -14,9 +14,5 @@
 		die('error : '. $e->getMessage());
 	}
 
-	/*foreach($oPDO->query('SELECT * FROM utilisateur') as $row) {
-    	echo $row['ID'].' '.$row['username'].' '.$row['userpass']; //etc...
-    }*/
-
-    //echo "<p>" . $_SERVER['DOCUMENT_ROOT'] . "</p>";
+	require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/classes/Utilisateur.php';
 ?>

@@ -27,7 +27,7 @@
 					    <input name="password" type="password" class="form-control" id="pwd" placeholder="Enter password" required>
 					  </div>
 					  <div class="checkbox">
-					    <label><input type="checkbox"> Remember me</label>
+					    <label><input type="checkbox">Remember med</label>
 					  </div>
 					  <button type="submit" class="btn btn-default">Submit</button>
 					</form>
@@ -38,3 +38,4 @@
 	
 </body>
 </html>
+
