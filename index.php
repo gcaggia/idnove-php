@@ -1,41 +1,97 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title>Idnove</title>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/config.php'; 
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
-	<link rel="stylesheet" href="style.css">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
-</head>
-<body>
+	if (isset($_GET['LogOut'])) {
+		if ($_GET['LogOut'] == 1) {
+			unset($_SESSION['utilisateur']);
+		}
+	}
 
-	<div class="main">
-		<div class="container">
-			<div class="row">
+	if (isset($_SESSION['utilisateur'])) {
+		$oUser = unserialize($_SESSION['utilisateur']);
+	}
 
-				<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 vcenter">
-					<h1>Idnove</h1>
-					<form role="form" action="result.php" method="POST">
-					  <div class="form-group">
-					    <label for="user">User : </label>
-					    <input name="user" type="user" class="form-control" id="user" placeholder="Enter user name" required>
-					  </div>
-					  <div class="form-group">
-					    <label for="pwd">Password:</label>
-					    <input name="password" type="password" class="form-control" id="pwd" placeholder="Enter password" required>
-					  </div>
-					  <div class="checkbox">
-					    <label><input type="checkbox">Remember med</label>
-					  </div>
-					  <button type="submit" class="btn btn-default">Submit</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-</body>
+?>
+
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="main.css">
+  </head>
+  <body>
+    <div class="topHeader">
+      <div class="container">
+        <div class="row">	
+          <div class="pull-left">
+          <a class="logo"href="#">Idnove</a>
+          </div>
+          <div class="user pull-right">
+            <?php if (isset($_SESSION['utilisateur'])): ?>
+            <div class="log logHello">Hello <?php echo $oUser->username; ?></div>       	
+      	  <?php else: ?>
+      	  	<a class="log" href="connexion.php">Log in</a>    
+          <?php endif ?>
+          	<?php if (isset($_SESSION['utilisateur'])): ?>
+				<a href="account.php" class="btn">My Account</a>
+          	<?php else: ?>
+            	<a class="btn">Sign up</a>
+            <?php endif ?>
+          </div>
+      </div>
+        
+    </div>
+
+    
+
+    <div class="feature">
+      <div class="container">
+        <div class="row">
+        	<h2>Available everywhere</h2>
+        	<p>Start watching on one device, and pick up where you left off on another device.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>Bolt</h3>
+            <ul>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Help</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h3>More Bolt</h3>
+            <ul>
+              <li><a href="#">Gift Cards</a></li>
+              <li><a href="#">Trailers</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h3>News</h3>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">YouTube</a></li>
+              <li><a href="#">Google+</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Idnove</a></li>
+              <li><a href="#">About the futur</a></li>
+              <li><a href="#">Projects</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>
-

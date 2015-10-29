@@ -1,4 +1,7 @@
 <?php 
+	
+	session_start();
+
 	//Paramètres de connection 
 	$PARAM_hote        = 'localhost'; // le chemin vers le serveur
 	$PARAM_dbname      = 'idnove';    // le nom de votre base de données

@@ -9,3 +9,12 @@ body {
 	color: #FFF;
 	background-color: #023577;
 }
+
+.error {
+	color: red;
+	font-weight: bold;
+}
+
+.btn {
+	font-weight: bold;
+}
