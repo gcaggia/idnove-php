@@ -19,6 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Oxygen:300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="verif.js"></script>
   </head>
   <body>
     <div class="topHeader">
@@ -36,20 +37,69 @@
           	<?php if (isset($_SESSION['utilisateur'])): ?>
 				<a href="account.php" class="btn">My Account</a>
           	<?php else: ?>
-            	<a href="register.php" class="btn">Sign up</a>
+            	<a class="btn">Sign up</a>
             <?php endif ?>
           </div>
       </div>
         
     </div>
-
+  </div>
     
 
-    <div class="feature indexFeature">
+    <div class="feature">
       <div class="container">
         <div class="row">
-        	<h2>Available everywhere</h2>
-        	<p>Start watching on one device, and pick up where you left off on another device.</p>
+
+          <h2>Registration</h2>    
+
+        	<form id="registerForm" class="form-horizontal" role="form"  action="account.php" method="POST">
+
+            <div class="form-group">
+
+              <div class="errorRegister">
+                
+              <?php
+
+                if (isset($_GET['errorRegister'])) {
+                  if ($_GET['errorRegister'] == 1) {
+                    echo "<p class=\"msgError\">This user already exists !</p>";
+                  }
+                  else {
+                    echo "<p class=\"msgError\">An error has occured... Please try again...</p>";
+                  }
+
+                }
+
+              ?>
+
+              </div>
+              <label class="control-label col-sm-2" for="userName">User name:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="username" placeholder="Enter your User name" name="registerUserName">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">Email:</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="registerEmail">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="pwd">Password:</label>
+              <div class="col-sm-10"> 
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="registerPassword">
+              </div>
+            </div>
+            
+            <div class="form-group"> 
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+              </div>
+            </div>
+
+          </form>
         </div>
       </div>
     </div>

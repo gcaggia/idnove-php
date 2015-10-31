@@ -92,12 +92,16 @@ form {
 
 
 /**************** feature ******************/
+
+.indexFeature {
+  padding-top: 160px;
+}
+
 .feature {
   background: url('https://s3.amazonaws.com/codecademy-content/projects/bolt-network/feature.jpg') no-repeat center center;
   background-size: cover;
   min-height: 380px;
   text-align: center;
-  padding-top: 160px;
 }
 
 .feature h2 {
@@ -138,3 +142,14 @@ form {
 }
 
 /*******************************************/
+
+
+.errorRegister {
+  color: red;
+  font-weight: bold;
+}
+
+.errorRegister p {
+  display: inline-block;
+  margin-left: 10px;
+}
