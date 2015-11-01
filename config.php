@@ -17,4 +17,4 @@
         die('error : '. $e->getMessage());
     }
 
-    require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/classes/Utilisateur.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/class/Utilisateur.php';

@@ -1,0 +1,155 @@
+html, body {
+  font-family: "Oxygen", sans-serif; 
+  font-weight: 300; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+}
+
+.container {
+  max-width: 970px;
+}
+
+.supporting {
+  
+  background-size: 141px 142px;
+}
+
+.btn {
+  background-color: transparent;
+  color: #023577;
+  border: 1px solid #023577;
+  border-radius: 2px;
+  padding: 8px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #023577;
+}
+
+/****************** main *******************/
+.topHeader {
+  background-color: #FFF;
+}
+
+.topHeader .container{
+  text-align: center;
+  height: 80px;
+}
+
+.logo {
+  font-size: 40px;
+  position: relative;
+  top: 6px;
+  color: #023577;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.topHeader .user {
+  padding: 20px 40px; 
+}
+.topHeader .user a {
+  margin-left: 30px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.log {
+  color: #023577;
+}
+
+.log:hover {
+  color: #023577;
+}
+
+.logHello {
+  color: #023577;
+}
+
+h1 {
+  font-size: 60px;
+  font-weight: 300;
+  margin-top: 80px;
+  margin-bottom: 40px;  
+}
+
+form {
+  margin-top: 80px;
+}
+
+
+/*******************************************/
+
+
+
+/**************** feature ******************/
+
+.indexFeature {
+  padding-top: 160px;
+}
+
+.feature {
+  background: url('https://s3.amazonaws.com/codecademy-content/projects/bolt-network/feature.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 380px;
+  text-align: center;
+}
+
+.feature h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;  
+}
+/*******************************************/
+
+/**************** footer *******************/
+.footer {
+  background-color: #000000;
+  padding-top: 20px;
+  height: 200px;
+}
+
+.footer h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.footer ul {
+  padding: 0;
+  list-style-type: none;
+}
+.footer li {
+
+}
+
+.footer a {
+  text-decoration: none;
+  color: #023577;
+}
+
+/*******************************************/
+
+
+.errorRegister {
+  color: red;
+  font-weight: bold;
+}
+
+.errorRegister p {
+  display: inline-block;
+  margin-left: 10px;
+}
