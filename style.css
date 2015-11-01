@@ -3,18 +3,18 @@
 }
 
 body {
-	background-image: url('./images/Innovation.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: #FFF;
-	background-color: #023577;
+    background-image: url('./images/Innovation.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFF;
+    background-color: 1023577;
 }
 
 .error {
-	color: red;
-	font-weight: bold;
+    color: red;
+    font-weight: bold;
 }
 
 .btn {
-	font-weight: bold;
+    font-weight: bold;
 }

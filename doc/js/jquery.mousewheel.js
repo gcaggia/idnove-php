@@ -37,7 +37,7 @@
         setup: function() {
             if ( this.addEventListener ) {
                 for ( var i = toBind.length; i; ) {
-                    this.addEventListener( toBind[--i], handler, false );
+                    this.addEventListener(toBind[--i], handler, false);
                 }
             } else {
                 this.onmousewheel = handler;
@@ -50,7 +50,7 @@
         teardown: function() {
             if ( this.removeEventListener ) {
                 for ( var i = toBind.length; i; ) {
-                    this.removeEventListener( toBind[--i], handler, false );
+                    this.removeEventListener(toBind[--i], handler, false);
                 }
             } else {
                 this.onmousewheel = null;
@@ -70,7 +70,8 @@
         }
     };
 
-    $.fn.extend({
+    $.fn.extend(
+        {
         mousewheel: function(fn) {
             return fn ? this.bind('mousewheel', fn) : this.trigger('mousewheel');
         },
@@ -78,7 +79,8 @@
         unmousewheel: function(fn) {
             return this.unbind('mousewheel', fn);
         }
-    });
+        }
+    );
 
 
     function handler(event) {
@@ -137,7 +139,7 @@
         }
 
         // Store lowest absolute delta to normalize the delta values
-        absDelta = Math.max( Math.abs(deltaY), Math.abs(deltaX) );
+        absDelta = Math.max(Math.abs(deltaY), Math.abs(deltaX));
 
         if ( !lowestDelta || absDelta < lowestDelta ) {
             lowestDelta = absDelta;

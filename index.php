@@ -1,14 +1,14 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/config.php'; 
 
-	if (isset($_GET['LogOut'])) {
-		if ($_GET['LogOut'] == 1) {
-			unset($_SESSION['utilisateur']);
-		}
-	}
+    if (isset($_GET['LogOut'])) {
+        if ($_GET['LogOut'] == 1) {
+            unset($_SESSION['utilisateur']);
+        }
+    }
 
-	if (isset($_SESSION['utilisateur'])) {
-		$oUser = unserialize($_SESSION['utilisateur']);
-	}
+    if (isset($_SESSION['utilisateur'])) {
+        $oUser = unserialize($_SESSION['utilisateur']);
+    }
 
 ?>
 
@@ -32,12 +32,12 @@
             <a class="log logHello">Hello <?php echo $oUser->username; ?></a>       	
       	  <?php else: ?>
       	  	<a class="log" href="connexion.php">Log in</a>    
-          <?php endif ?>
+         <?php endif ?>
           	<?php if (isset($_SESSION['utilisateur'])): ?>
 				<a href="account.php" class="btn">My Account</a>
           	<?php else: ?>
             	<a href="register.php" class="btn">Sign up</a>
-            <?php endif ?>
+           <?php endif ?>
           </div>
       </div>
         

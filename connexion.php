@@ -1,8 +1,8 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'] . 'idnove/config.php'; 
 
-	if (isset($_SESSION['utilisateur'])) {
-		header('location: account.php');
-	}
+    if (isset($_SESSION['utilisateur'])) {
+        header('location: account.php');
+    }
 
 ?>
 
@@ -26,17 +26,17 @@
 				<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 vcenter">
 					<h1>Idnove</h1>
 					<?php 
-						if (isset($_GET['errorAuth'])) {
-							if ($_GET['errorAuth'] == 1) {
-								echo "<p class=\"error\">Authentication error... Please try again...</p>";
-							}
-							else {
-								echo "<p class=\"error\">You have to login before accessing your personnal page</p>";
-							}
+                        if (isset($_GET['errorAuth'])) {
+                            if ($_GET['errorAuth'] == 1) {
+                                echo "<p class=\"error\">Authentication error... Please try again...</p>";
+                            }
+                            else {
+                                echo "<p class=\"error\">You have to login before accessing your personnal page</p>";
+                            }
 
-						}
+                        }
 
-					?>
+                    ?>
 					<form role="form" action="account.php" method="POST">
 					  <div class="form-group">
 					    <label for="user">User : </label>

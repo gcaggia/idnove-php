@@ -1,118 +1,121 @@
 <?php 
 
 /**
- * 
  * This class is for manage user account
  * 
- * @copyright MIT Licence
  * @author Guillaume Caggia <guillaume.caggia@gmail.com>
+ * @copyright MIT Licence 2015
  * @link www.idnove.com 
  * 
- */	
+ */    
 
 
 /**
  * Utilisateur is a class which is used for user connexion
  * 
  */
-class Utilisateur {
+class Utilisateur
+{
 
-	// Attributs
-	private $ID;
-	private $username;
-	private $userpass;
-	private $usermail;
-
-
-
-	/**
-	 * This is a classic constructor for Utilisateur class
-	 * @param string $ID ID of the user generate by the database
-	 * @param string $username Name of the user which is like a pseudo
-	 * @param string $userpass Password of the user encrypted with sha512 algorithm
-	 * @param string $usermail Mail of the user, not really used for the moment
-	 * 
-	 */ 
-	public function __construct($ID = "", $username = "", $userpass = "", $usermail = "") {
-		$this->ID       = $ID;
-		$this->username = $username;
-		$this->userpass = $userpass;
-		$this->usermail = $usermail;
-	}
+    // Attributs
+    private $ID;
+    private $username;
+    private $userpass;
+    private $usermail;
 
 
-	/**
-	 * 
-	 * 
-	 */ 
-	public function __get($Attribut) {
-		return $this->$Attribut;
-	}
+
+    /**
+     * This is a classic constructor for Utilisateur class
+     * @param string $ID ID of the user generate by the database
+     * @param string $username Name of the user which is like a pseudo
+     * @param string $userpass Password of the user encrypted with sha512 algorithm
+     * @param string $usermail Mail of the user, not really used for the moment
+     * 
+     */ 
+    public function __construct($ID = "", $username = "", $userpass = "", $usermail = "") 
+    {
+        $this->ID       = $ID;
+        $this->username = $username;
+        $this->userpass = $userpass;
+        $this->usermail = $usermail;
+    }
 
 
-	/**
-	 * 
-	 * 
-	 */ 
-	public function __set($Attribut, $valeur) {
-		$this->$Attribut = $valeur;
-	}
+    /**
+     * 
+     * 
+     */ 
+    public function __get($Attribut) 
+    {
+        return $this->$Attribut;
+    }
 
 
-	/**
-	 * 
-	 * 
-	 */ 
-	public function isExist($username, $userpass) {
-
-		global $oPDO;
-
-		$strSQL = "SELECT *           " .
-		          "FROM utilisateur   " .
-		          "WHERE username = ? " .
-		          "  AND userpass = ? ";
+    /**
+     * 
+     * 
+     */ 
+    public function __set($Attribut, $valeur) 
+    {
+        $this->$Attribut = $valeur;
+    }
 
 
-		$rs = $oPDO->prepare($strSQL);
-		$rs->execute(array($username, $userpass));
-		
-		$rs->setFetchMode(PDO::FETCH_OBJ);
+    /**
+     * 
+     * 
+     */ 
+    public function isExist($username, $userpass) 
+    {
 
-		if( $myUser = $rs->fetch() ) {
+        global $oPDO;
 
-			$this->ID       = $myUser->ID;
-			$this->username = $myUser->username;
-			$this->userpass = $myUser->userpass;
-			$this->usermail = $myUser->usermail;
-			$rs->closeCursor();
-
-			return true;
-		}
-		else {
-			$rs->closeCursor();
-			return false;
-		}
-	}
+        $strSQL = "SELECT *           " .
+                  "FROM utilisateur   " .
+                  "WHERE username = ? " .
+                  "  AND userpass = ? ";
 
 
-	/**
-	 * 
-	 * 
-	 */ 
-	public function addNewUser($userName, $userMail, $userPass)
-	{
-		global $oPDO;
+        $rs = $oPDO->prepare($strSQL);
+        $rs->execute(array($username, $userpass));
+        
+        $rs->setFetchMode(PDO::FETCH_OBJ);
 
-		$strSQL = "INSERT INTO utilisateur(username, usermail, userpass) " .
-		          "VALUES (?, ?, ?) ";
+        if( $myUser = $rs->fetch() ) {
 
-		$rs = $oPDO->prepare($strSQL);
-		$rs->execute(array($userName, $userMail, $userPass));
-		$rs->closeCursor();
-		return true;   
-	}
+            $this->ID       = $myUser->ID;
+            $this->username = $myUser->username;
+            $this->userpass = $myUser->userpass;
+            $this->usermail = $myUser->usermail;
+            $rs->closeCursor();
+
+            return true;
+        }
+        else {
+            $rs->closeCursor();
+            return false;
+        }
+    }
 
 
-}	
+    /**
+     * 
+     * 
+     */ 
+    public function addNewUser($userName, $userMail, $userPass)
+    {
+        global $oPDO;
 
-?>
+        $strSQL = "INSERT INTO utilisateur(username, usermail, userpass) " .
+                  "VALUES (?, ?, ?) ";
+
+        $rs = $oPDO->prepare($strSQL);
+        $rs->execute(array($userName, $userMail, $userPass));
+        $rs->closeCursor();
+        return true;   
+    }
+
+
+}    
+
