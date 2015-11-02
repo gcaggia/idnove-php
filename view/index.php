@@ -11,7 +11,7 @@
       <div class="container">
         <div class="row">	
           <div class="pull-left">
-            <a class="logo"href="#">Idnove</a>
+            <a class="logo"href="./">Idnove</a>
           </div>
           <div class="user pull-right">
             <?php if (isset($_SESSION['utilisateur'])) : ?>

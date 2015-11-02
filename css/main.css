@@ -1,5 +1,5 @@
 html, body {
-  font-family: "Oxygen", sans-serif; 
+  font-family: sans-serif; 
   font-weight: 300; 
   margin: 0;
   padding: 0;
@@ -94,14 +94,15 @@ form {
 /**************** feature ******************/
 
 .indexFeature {
-  padding-top: 160px;
+  padding-top: 15%;
 }
 
 .feature {
   background: url('https://s3.amazonaws.com/codecademy-content/projects/bolt-network/feature.jpg') no-repeat center center;
   background-size: cover;
-  min-height: 380px;
+  min-height: 480px;
   text-align: center;
+  vertical-align: center;
 }
 
 .feature h2 {
@@ -120,7 +121,7 @@ form {
 .footer {
   background-color: #000000;
   padding-top: 20px;
-  height: 200px;
+  min-height: 200px;
 }
 
 .footer h3 {

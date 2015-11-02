@@ -1,20 +1,20 @@
-.vcenter {
+.connexion .vcenter {
     margin-top: 150px;
 }
 
 .connexion {
-    background-image: url('./images/Innovation.jpg');
+    background-image: url('../images/Innovation.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #FFF;
     background-color: 1023577;
 }
 
-.error {
+.connexion .error {
     color: red;
     font-weight: bold;
 }
 
-.btn {
+.connexion .btn {
     font-weight: bold;
 }
