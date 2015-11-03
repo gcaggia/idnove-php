@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
   <head>
@@ -15,7 +16,7 @@
           </div>
           <div class="user pull-right">
             <?php if (isset($_SESSION['utilisateur'])) : ?>
-              <a class="log logHello">Hello <?php= $oUser->username; ?></a>git        	
+              <a class="log logHello">Hello <?= $oUser->username; ?></a>        	
       	    <?php else : ?>
       	  	  <a class="log" href="connexion.php">Log in</a>    
             <?php endif ; ?>
