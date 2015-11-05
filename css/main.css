@@ -121,7 +121,7 @@ form {
 .footer {
   background-color: #000000;
   padding-top: 20px;
-  min-height: 200px;
+  min-height: 300px;
 }
 
 .footer h3 {
@@ -200,4 +200,10 @@ form {
 
 #hregister {
   margin-top: 50px;
+}
+
+
+.main-account {
+  background-color: #A7AAAE;
+  min-height: 400px;
 }

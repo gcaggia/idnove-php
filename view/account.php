@@ -10,8 +10,8 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-
-  <div class="topHeader">
+    
+    <div class="topHeader">
     <div class="container">
       <div class="row"> 
         <div class="pull-left">
@@ -33,34 +33,17 @@
     </div>  
   </div>
 
-  <div class="main connexion">
-      <div class="container">
-          <div class="row">
-              <div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 vcenter">
-              	<h2>Log In</h2>
-                  <?php if (isset($_GET['errorAuth']) && ($_GET['errorAuth'] == 1)) : ?>
-                      <p class="error">Authentication error... Please try again...</p>
-                  <?php elseif (isset($_GET['errorAuth']) && ($_GET['errorAuth'] == 2)) : ?>
-                      <p class="error">You have to login before accessing your personnal page</p>
-                  <?php endif ; ?>
-                  <form role="form" action="account.php" method="POST">
-                    <div class="form-group">
-                      <label for="user">User : </label>
-                      <input name="user" type="user" class="form-control" id="user" placeholder="Enter user name" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="pwd">Password:</label>
-                      <input name="password" type="password" class="form-control" id="pwd" placeholder="Enter password" required>
-                    </div>
-                    <div class="checkbox">
-                      <label><input type="checkbox">Remember me</label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
-              </div>
-          </div>
-  	</div>
-  </div>
+    <div class="main main-account">
+        <div class="container">
+            <div class="row">
+
+                <h1>Idnove - mon compte</h1>
+                <?php echo ($utilisateur = 1 ? "<p>Bienvenue " . $oUser->username . " !</p>" : "");?>
+
+                <a class="btn btn-danger" href="index.php?LogOut=1">Log out</a>
+            </div>
+        </div>
+    </div>
 
     <div class="footer">
       <div class="container">
@@ -101,6 +84,6 @@
         </div>
       </div>
     </div>
-
-  </body>
+    
+</body>
 </html>
