@@ -14,7 +14,7 @@ body {
 }
 
 .supporting {
-  
+
   background-size: 141px 142px;
 }
 
@@ -160,24 +160,44 @@ form {
 /*************** Connexion *****************/
 
 .connexion .vcenter {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 .connexion {
-    background: url('/idnove/images/Innovation.jpg') no-repeat center center;
-    background-size: cover;
-    color: #FFF;
-    background-color: #102357;
-    min-height: 500px;
+  background: url('/idnove/images/Innovation.jpg') no-repeat center center;
+  background-size: cover;
+  color: #FFF;
+  background-color: #102357;
+  min-height: 500px;
 }
 
 .connexion .error {
-    color: red;
-    font-weight: bold;
+  color: red;
+  font-weight: bold;
 }
 
 .connexion .btn {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /*******************************************/
+
+.form-control {
+  width: 500px;
+}
+
+#registerForm {
+  margin: auto;
+  width: 650px;
+  margin-top: 50px;
+}
+
+.btn-register {
+  background-color: #023577;
+  color: #FFF;
+  margin-top: 50px;
+}
+
+#hregister {
+  margin-top: 50px;
+}
