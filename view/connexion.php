@@ -43,7 +43,7 @@
                   <?php elseif (isset($_GET['errorAuth']) && ($_GET['errorAuth'] == 2)) : ?>
                       <p class="error">You have to login before accessing your personnal page</p>
                   <?php endif ; ?>
-                  <form role="form" action="account.php" method="POST">
+                  <form role="form" action="connexion.php" method="POST">
                     <div class="form-group">
                       <label for="user">User : </label>
                       <input name="user" type="user" class="form-control" id="user" placeholder="Enter user name" required>
