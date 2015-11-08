@@ -207,3 +207,20 @@ form {
   background-color: #A7AAAE;
   min-height: 400px;
 }
+
+.captcha {
+  padding: 5px;
+  margin-left: 15px;
+  width: 100px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  border : 1px solid #8D8789;
+  cursor: none;
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
