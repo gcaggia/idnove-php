@@ -161,7 +161,6 @@ function captchaMtRandWord($pLength)
 
     $arrayVowel = array_merge($arrayLowerVowel, $arrayUpperVowel);
 
-
     $flag = (mt_rand(0, 1) ? true : false);
 
     for ($i=$pLength, $text=""; $i>0; $i--) {
@@ -176,3 +175,153 @@ function captchaMtRandWord($pLength)
 
     return $text;
 }
+
+/**
+ * Generate a random text with microtime method for captcha
+ * @param integer $pLength specify length of the random text
+ * @return string $text which is the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 8 for captcha function
+ */
+function captchaMicrotime($pLength)
+{
+    $mtime = microtime(true);
+
+    $mtime = next(explode(".", $mtime));
+
+    $text = str_pad($mtime, $pLength, "0", STR_PAD_RIGHT);
+
+    return $text;
+}
+
+/**
+ * Generate a random text with mt_rand and Pow methods for captcha
+ * @param integer $pLength specify length of the random text
+ * @return string $text which is the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 9 for captcha function
+ */
+function captchaMtRandPow($pLength)
+{
+    $text = mt_rand(0, pow(10, 5));
+
+    $text = str_pad($text, $pLength, "0", STR_PAD_RIGHT);
+
+    return $text;
+}
+
+/**
+ * Generate a random addition for the captcha
+ * @param integer $pLength specify length of the random text
+ * @return string $text which is the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 10 for captcha function
+ */
+function captchaAddQuestionDigit($pLength)
+{
+    return mt_rand(0, 99) . "+" . mt_rand(0, 99);
+}
+
+/**
+ * Generate a random addition for the captcha
+ * @param integer $pLength specify length of the random text
+ * @return string $text which is the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 11 for captcha function
+ */
+function captchaAddQuestionText($pLength)
+{
+    $digitArray = array('un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf');
+
+    return $digitArray[mt_rand(0, 8)] . "+" . $digitArray[mt_rand(0, 8)];
+}
+
+/**
+ * Generate a random image for the captcha
+ * @param integer $pLength specify length of the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 12 for captcha function
+ */
+function captchaImageSimple($pLength)
+{
+    $text = captchaMtRandWord($pLength);
+
+    $width = 10 * $pLength + 10;
+    $height = 20;
+    
+    //Create an object image with GD library
+    $img = imagecreate($width, $height);
+
+    $background = imagecolorallocate($img, 255, 255, 255);
+
+    $colorText = imagecolorallocate($img, 0, 0, 0);
+
+    $colorLine = imagecolorallocate($img, 100, 100, 100);
+
+    //Transform text into an image. Use $img variable to store it
+    imagestring($img, 5, 10, 0, $text, $colorText);
+    
+    for ($dy=6, $i=$dy; $i < $height*0.85; $i+=$dy) {
+        imageline($img, 0, $i, $width, $i, $colorLine);
+    }
+
+
+    //Convert $img object to png
+    imagepng($img);
+
+    //Free memory about $img variable
+    imagedestroy($img);
+
+}
+
+
+/**
+ * Generate a random image for the captcha
+ * @param integer $pLength specify length of the random text
+ * @author Guillaume Caggia
+ * @version 1.0
+ * @todo Method 12 for captcha function
+ */
+function captchaImageComplex($pLength)
+{
+    $text = captchaMtRandWord($pLength);
+
+    $width = 12 * $pLength + 20;
+    $height = 32;
+
+    $fontfile = $_SERVER['DOCUMENT_ROOT'] . 'idnove/features/smartie.ttf';
+    
+    //Create an object image with GD library
+    $img = imagecreate($width, $height);
+
+    $background = imagecolorallocate($img, 255, 255, 255);
+
+    $colorText = imagecolorallocate($img, 24, 60, 91);
+
+    $colorLine = imagecolorallocate($img, 100, 100, 100);
+
+    //Transform text into an image. Use $img variable to store it
+    imagettftext($img, 24, -5, 5, $height/2+8, $colorText, $fontfile, $text);
+    
+    for ($dy=6, $i=$dy; $i < $height*0.85; $i+=$dy) {
+        imageline($img, 0, $i, $width, $i, $colorLine);
+    }
+
+    $convolutionMatrix = array(array(2, 0, 0), array(0, -1, 0), array(0, 0, -1));
+    imageconvolution($img, $convolutionMatrix, 1, 200);
+
+    //Convert $img object to png
+    imagepng($img);
+
+    //Free memory about $img variable
+    imagedestroy($img);
+
+}
+
+header("Content-type: image/png");
+captchaImageComplex(5);

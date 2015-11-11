@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="verif.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <div class="topHeader">
@@ -34,7 +35,7 @@
         <div class="container">
             <div class="row">
                 <h2 id="hregister">Registration</h2>    
-                <form id="registerForm" class="form-horizontal" role="form"  action="account.php" method="POST">
+                <form id="registerForm" class="form-horizontal" role="form"  action="register.php" method="POST">
 
                     <div class="form-group">
                         <div class="errorRegister">
@@ -42,11 +43,15 @@
                                 <p class="msgError">This user already exists !</p>
                             <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 2)) : ?>
                                 <p class="msgError">An error has occured... Please try again...</p>
+                            <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 3)) : ?>
+                                <p class="msgError">You are a human, this form is only for bot...</p>
+                            <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 4)) : ?>
+                                <p class="msgError">You are a noy, this form is only for human...</p>
                             <?php endif ?>
                         </div>
                         <label class="control-label col-sm-2" for="userName">User name :</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="username" placeholder="Enter your User name" name="isterUserName">
+                            <input type="text" class="form-control" id="username" placeholder="Enter your User name" name="registerUserName">
                         </div>
                     </div>
 
@@ -66,10 +71,12 @@
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="pwd">Captcha :</label>
-                        <div class="col-sm-3 captcha"><?= $_SESSION['varCaptcha'] ?></div>
-                        <div class="col-sm-5"> 
+                        <!-- <div class="col-sm-3 captcha"><?= $_SESSION['varCaptcha'] ?></div> -->
+                        <!-- <div class="col-sm-3"><img src="./features/captcha.php"></div> -->
+                        <div class="col-sm-10 g-recaptcha" data-sitekey="6LcijRATAAAAAJOdMmPujrAU3fCJc4OwtIfMdBne"></div>
+                        <!-- <div class="col-sm-5"> 
                             <input type="text" class="form-control" id="captcha" placeholder="Enter captcha" name="registerPassword" style="width: 125px">
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="form-group"> 
