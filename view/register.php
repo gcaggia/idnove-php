@@ -44,9 +44,7 @@
                             <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 2)) : ?>
                                 <p class="msgError">An error has occured... Please try again...</p>
                             <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 3)) : ?>
-                                <p class="msgError">You are a human, this form is only for bot...</p>
-                            <?php elseif (isset($_GET['errorRegister']) && ($_GET['errorRegister'] == 4)) : ?>
-                                <p class="msgError">You are a noy, this form is only for human...</p>
+                                <p class="msgError">You are a bot, this form is only for human...</p>
                             <?php endif ?>
                         </div>
                         <label class="control-label col-sm-2" for="userName">User name :</label>

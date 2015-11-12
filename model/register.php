@@ -6,8 +6,6 @@
 
 if (isset($_POST['registerUserName'])  &&  isset($_POST['registerEmail'])
     && isset($_POST['registerPassword'])) {
-
-        
     // Ma clé privée
     $secret = "6LcijRATAAAAAO0IU3pc2vMbr-XiwU8uhxzc_kiE";
     // Paramètre renvoyé par le recaptcha
@@ -17,12 +15,14 @@ if (isset($_POST['registerUserName'])  &&  isset($_POST['registerEmail'])
     
     $api_url = "https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$response."&remoteip=".$remoteip ;
     
-    $decode = json_decode(file_get_contents($api_url, true), true);
+    $decode = file_get_contents($api_url);
 
-    if ($decode['success'] == true) {
+    echo "variable decode";
+    print_r($decode);
+
+    if ($decode.success == false) {
         header('location: register.php?errorRegister=3');
-    } else {
-        header('location: register.php?errorRegister=4');
+        exit;
     }
     
     $userName = $_POST['registerUserName'];
